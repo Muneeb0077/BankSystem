@@ -4,7 +4,7 @@ Excited to share our latest project for the System Design and Architecture cours
 
 🔧 Tech Stack:
 Frontend: HTML, CSS, JavaScript
-Backend: Node.js
+Backend: Node.js and Mongodb
 Focus: Secure authentication & imaginative UI design
 We built a modern, user-friendly interface and robust cash transaction functionalities while sharpening our HTML/CSS skills and mastering Node.js. This project provided an intense, hands-on experience in system design, combining technical precision with creative UI work.
 
