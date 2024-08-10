@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../resources/css/login-style.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="../resources/files/pics/logo.png" />
+  <title>Login</title>
+</head>
+<body>
+  <header>
+    <h1 onclick="window.location.href='index.html'">Apna bank</h1>
+  </header>
+  <main>
+    <section>
+      <div class="container">
+        <div class="login">
+          <p class="title"><span>Login to your Account</span></p>
+          <form id="login-form">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required />
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+            <div class="button">
+              <button type="submit">Login</button>
+            </div>
+          </form>
+          <p class="create">
+            <span>Don't have an Account? <a href="create.html">Click here to create one</a></span>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+      event.preventDefault(); 
+      const formData = new FormData(event.target);
+      const email = formData.get("email");
+      const password = formData.get("password");
+
+
+      fetch("http://localhost:3000/api/v1/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email, password })
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then(data => {
+
+        console.log(data); 
+        alert("Login successful!");
+        const timestamp = new Date().getTime();
+      localStorage.setItem('userEmail', email);
+      localStorage.setItem('emailTimestamp', timestamp);
+
+        window.location.href = "dashboard.html";
+      })
+      .catch(error => {
+
+        console.error("There was an error!", error);
+        alert("Login failed. Please try again.");
+      });
+    });
+  </script>
+</body>
+</html>

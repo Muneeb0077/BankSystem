@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../resources/css/create-style.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="../resources/files/pics/logo.png" />
+  <title>Create Account</title>
+</head>
+<body>
+  <header>
+    <h1 onclick="window.location.href='index.html'">Apna bank</h1>
+  </header>
+  <main>
+    <section>
+      <div class="container">
+        <div class="create">
+          <p class="title"><span>Create your Account</span></p>
+          <form id="create-form">
+            <div class="column">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required />
+              <label for="username">Username</label>
+              <input type="text" id="username" name="username" required />
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" required />
+              <label for="reppassword">Repeat Password</label>
+              <input type="password" id="reppassword" name="reppassword" required onkeyup="check()" />
+            </div>
+            <div class="column">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" required />
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" required />
+              <label for="cnic">CNIC</label>
+              <input type="text" id="cnic" name="cnic" required />
+              <label for="account">Account Number</label>
+              <input type="text" id="account" name="account" required />
+              <label for="balance">Balance</label>
+              <input type="number" id="balance" name="balance" required />
+            </div>
+            <div class="button">
+              <button type="submit">Create Account</button>
+            </div>
+          </form>
+          <p class="login">
+            <span>Already have an Account? <a href="login.html">Click here to login</a></span>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("create-form").addEventListener("submit", function(event) {
+      event.preventDefault(); 
+      
+
+      const formData = new FormData(event.target);
+      const email = formData.get("email");
+      const username = formData.get("username");
+      const password = formData.get("password");
+      const fname = formData.get("fname");
+      const lname = formData.get("lname");
+      const cnic = formData.get("cnic");
+      const account = formData.get("account");
+      const balance = formData.get("balance");
+
+ 
+      fetch("http://localhost:3000/api/v1/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email, name: `${fname} ${lname}`, password, username, cnic, account, balance })
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then(data => {
+
+        console.log(data);
+        alert("Account created successfully!");
+
+        const timestamp = new Date().getTime();
+      localStorage.setItem('userEmail', email);
+      localStorage.setItem('emailTimestamp', timestamp);
+
+        window.location.href = "login.html";
+      })
+      .catch(error => {
+
+        console.error("There was an error!", error);
+        alert("Account creation failed. Please try again."); 
+      });
+    });
+  </script>
+</body>
+</html>

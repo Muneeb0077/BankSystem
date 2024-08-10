@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../resources/css/dashboard-style.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="../resources/files/pics/logo.png" />
+  <title>Dashboard</title>
+  <style>
+    .card-exp-cvv span {
+      color: #f0f0f0;
+      font-family: "Noto Serif", serif;
+      margin: 20px;
+      margin-top: 25px;
+    }
+
+    .card-num {
+      font-family: "Noto Serif", serif;
+      color: #f0f0f0;
+      font-size: 25px;
+      margin-top: 30px;
+      font-weight: bold;
+      padding: 15px;
+    }
+
+    .card-exp-cvv {
+      font-family: "Noto Serif", serif;
+      color: #f0f0f0;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <header></header>
+  <main>
+    <section>
+      <div class="container">
+        <div class="ham-menu">
+          <img src="../resources/files/pics/hamburgur.svg" id="btn" alt="" onclick="myFunction()" />
+        </div>
+        <div class="home-button">
+          <img src="../resources/files/pics/home.svg" id="btn" alt="" onclick="window.location.href='dashboard.html'" />
+        </div>
+        <div class="row">
+          <div class="column-left" id="column-left">
+            <section>
+              <div class="profile">
+                <div class="container-2">
+                  <div class="photo">
+                    <div class="img">
+                      <img id="user-photo" src="../resources/files/pics/user.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="name">
+                    <div class="container-3">
+                      <div class="text">
+                        <p class="hello"><span>Welcome back,</span></p>
+                        <p class="fname"><span id="user-name">Arad Afzali</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="balance-container">
+                <div class="balance-text">
+                  <p><span>Your balance is:</span></p>
+                  <p>
+                    <span class="money"><span id="user-balance">4932</span>
+                      <span style="color: green; font-size: 50px">$</span></span>
+                  </p>
+                </div>
+              </div>
+              <div class="account-info">
+                <div class="info-text">
+                  <p style="margin-bottom: 10px">
+                    <span style="font-size: 20px">Account Information</span>
+                  </p>
+                  <p><span>ID: <span id="user-id">Arad_Afzali</span></span></p>
+                  <p><span>Email: <span id="user-email">Arad.h.a.afzali@gmail.com</span></span></p>
+                  <p><span>Phone Number: <span id="user-phone">09997775533</span></span></p>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="column-middle">
+            <section>
+              <div class="transaction">
+                <div class="trans-container">
+                  <div class="title">
+                    <p><span>Transfer Money</span></p>
+                  </div>
+                  <div class="trans-info">
+                    <div class="container">
+                      <form id="transfer-form">
+                        <label for="sender-id">Sender ID</label>
+                        <input type="text" id="sender-id" name="sender-id" required />
+
+                        <label for="receiver-account">Receiver Account</label>
+                        <input type="text" id="receiver-account" name="receiver-account" required />
+
+                        <label for="amount">Transfer Amount</label>
+                        <input type="number" id="amount" name="amount" required />
+
+                        <div class="dollar-sign">
+                          <p><span>$</span></p>
+                        </div>
+
+                        <button type="submit">Transfer</button>
+                      </form>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="column-right">
+            <section>
+              <div class="card">
+                <div class="card-container">
+                  <div class="title">
+                    <p><span>Card & Tools</span></p>
+                  </div>
+                  <div class="card-visual">
+                    <div class="card-pic">
+                      <div class="card-brand">
+                        <p><span>Apna Bank</span></p>
+                      </div>
+                      <div class="chip">
+                        <img src="../resources/files/pics/chip.png" alt="" />
+                      </div>
+                      <div class="name">
+                        <p><span id="card-name">Arad Afzali</span></p>
+                      </div>
+                      <div class="card-num" id="card-number">
+                        <p>
+                          <span>9988 </span><span> 7766 </span><span> 5544 </span><span> 3322</span>
+                        </p>
+                      </div>
+                      <div class="card-exp-cvv" id="card-exp-cvv">
+                        <p>
+                          <span style="float: left">exp: 2024/07</span><span style="float: right">cvv: 123</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tools-container">
+                    <div class="tools-row">
+                      <div class="tools-column">
+                        <div class="option"
+                          style="box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.1); transition: all 0.3s; background-color: #f4505083;">
+                          <div class="container">
+                            <div class="logo">
+                              <img src="../resources/files/pics/transfer.svg" alt="" />
+                            </div>
+                            <div class="text">
+                              <p>Transfer</p>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Removed options -->
+                      </div>
+                      <div class="tools-column">
+                        <!-- Removed options -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+  </main>
+  <footer></footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      function fetchUserData(email) {
+        fetch('http://localhost:3000/api/v1/getUserDetail', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email: email }),
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+
+              document.getElementById('user-photo').src = data.user.photo || '../resources/files/pics/user.png';
+              document.getElementById('user-name').innerText = data.user.name || 'N/A';
+              document.getElementById('user-balance').innerText = `${data.user.balance || 0} `;
+              document.getElementById('user-id').innerText = data.user._id || 'N/A';
+              document.getElementById('user-email').innerText = data.user.email || 'N/A';
+              document.getElementById('user-phone').innerText = data.user.phone || 'N/A';
+              document.getElementById('card-name').innerText = data.user.name || 'N/A';
+
+              document.getElementById('card-number').innerText = data.user.account || '9988 7766 5544 3322';
+
+              document.getElementById('card-exp-cvv').innerHTML = `<span style="float: left">exp: ${data.user.expiry || '2024/07'}</span><span style="float: right">cvv: ${data.user.cvv || '123'}</span>`;
+              document.getElementById('sender-id').value = data.user._id || '';
+            } else {
+              alert('Failed to fetch user data. Please try again.');
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching user data:', error);
+            alert('An error occurred while fetching user data. Please try again.');
+          });
+      }
+
+      const email = localStorage.getItem('userEmail');
+      const timestamp = localStorage.getItem('emailTimestamp');
+      const now = new Date().getTime();
+
+
+
+      function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
+      function isTimestampValid(timestamp) {
+        return now - timestamp < 15 * 60 * 1000;
+      }
+
+      if (!email || !isValidEmail(email) || !timestamp || !isTimestampValid(timestamp)) {
+        alert('No valid user email found. Please log in again.');
+        window.location.href = 'login.html';
+      } else {
+        fetchUserData(email);
+      }
+
+
+      document.getElementById('transfer-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const senderId = document.getElementById('sender-id').value;
+        const receiverAccount = document.getElementById('receiver-account').value;
+        const amount = document.getElementById('amount').value;
+
+        fetch('http://localhost:3000/api/v1/transfer', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ _id: senderId, account: receiverAccount, amount: amount }),
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              alert('Transfer successful! New balance: ' + data.balance + ' $');
+              document.getElementById('user-balance').innerText = `${data.balance || 0} $`;
+            } else {
+              alert('Transfer failed. Please try again.');
+            }
+          })
+          .catch(error => {
+            console.error('Error during transfer:', error);
+            alert('An error occurred during the transfer. Please try again.');
+          });
+      });
+    });
+  </script>
+</body>
+
+</html>
